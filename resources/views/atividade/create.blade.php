@@ -1,7 +1,6 @@
 <h1>Formulário de Cadastro de Atividade </h1>
 <hr>
 
-
 	<form action="/atividades" method ="post">
     {{csrf_field() }}
     Título:              <input type="text" name="title"> <br>

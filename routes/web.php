@@ -20,6 +20,10 @@ Route::get('/atividades', 'AtividadeController@index');
 Route::get('/atividades/{id}', 'AtividadeController@show');
 Route::post('/atividades', 'AtividadeController@store');
 
+Route::get('/mensagens', 'MensagemController@index');
+Route::get('/mensagens/create', 'MensagemController@create');
+Route::get('/mensagens/{id}', 'MensagemController@show');
+Route::post('/mensagens', 'MensagemController@store');
 
 
 

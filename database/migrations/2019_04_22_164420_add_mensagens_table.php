@@ -31,6 +31,8 @@ class AddMensagensTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::table('mensagens', function (Blueprint $table) {
+            //
+        });
     }
 }
