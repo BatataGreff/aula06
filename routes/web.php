@@ -15,9 +15,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
-Route::get('/atividades', 'AtividadeController@index');
 Route::get('/atividades/create', 'AtividadeController@create');
+Route::get('/atividades', 'AtividadeController@index');
+Route::get('/atividades/{id}', 'AtividadeController@show');
 Route::post('/atividades', 'AtividadeController@store');
 
 
