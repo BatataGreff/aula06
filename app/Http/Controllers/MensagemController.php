@@ -41,16 +41,16 @@ class MensagemController extends Controller
 
         //vetor com as mensagens de erro
         $messages = array(
-            'title.required' => 'É obrigatório um título para a atividade',
-            'description.required' => 'É obrigatória uma descrição para a atividade',
-            'scheduledto.required' => 'É obrigatório o cadastro da data/hora da atividade',
+            'titulo.required' => 'É obrigatório um título para a atividade',
+            'texto.required' => 'É obrigatório o texto para a atividade',
+            'autor.required' => 'É obrigatório o autor da atividade',
         );
 
             //vetor com as especificações de validações
             $regras = array(
-                'title' => 'required|string|max:255',
-                'description' => 'required',
-                'scheduledto' => 'required|string',
+                'titulo' => 'required|string|max:255',
+                'texto' => 'required',
+                'autor' => 'required|string',
             );
 
             //cria o objeto com as regras de validação
@@ -64,10 +64,10 @@ class MensagemController extends Controller
             }
 
             //se passou pelas validações, processa e salva no banco...
-            $obj_Mensagens = new Atividade();
-            $obj_Mensagens ->title       = $request['title'];
-            $obj_Mensagens ->description = $request['description'];
-            $obj_Mensagens ->scheduledto = $request['scheduledto'];
+            $obj_Mensagens = new Mensagem();
+            $obj_Mensagens ->titulo    = $request['titulo'];
+            $obj_Mensagens ->texto     = $request['texto'];
+            $obj_Mensagens ->autor     = $request['autor'];
             $obj_Mensagens ->save();
 
             return redirect('/mensagens')->with('success', 'Mensagem criada com sucesso!!');
@@ -93,7 +93,8 @@ class MensagemController extends Controller
      */
     public function edit(mensagens $mensagens)
     {
-        //
+        $obj_mensagem = mensagens::find($id);
+        return view('mensagem.edit',['mensagem' => $obj_mensagem]);
     }
 
     /**
@@ -103,9 +104,44 @@ class MensagemController extends Controller
      * @param  \App\mensagens  $mensagens
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, mensagens $mensagens)
+    public function update(Request $request, $id)
     {
-        //
+        {
+            //faço as validações dos campos
+   
+           //vetor com as mensagens de erro
+           $messages = array(
+               'titulo.required' => 'É obrigatório um título para a mensagem',
+               'texto.required' => 'É obrigatória um texto para a mensagem',
+               'autor.required' => 'É obrigatório um autor para a mensagem',
+           );
+   
+               //vetor com as especificações de validações
+               $regras = array(
+                   'titulo' => 'required|string|max:255',
+                   'texto' => 'required',
+                   'autor' => 'required|string',
+               );
+   
+               //cria o objeto com as regras de validação
+               $validador = Validator::make($request->all(), $regras, $messages);
+   
+               //executa as validações
+               if ($validador->fails()) {
+                   return redirect("mensagens/creat$id/creat")
+                   ->withErrors($validador)
+                   ->withInput($request->all);
+               }
+   
+               //se passou pelas validações, processa e salva no banco...
+               $obj_Mensagens = mensagem::findOrFail($id);
+               $obj_Mensagens->title =       $request['titulo'];
+               $obj_Mensagens->description = $request['texto'];
+               $obj_Mensagens->scheduledto = $request['autor'];
+               $obj_Mensagens->save();
+   
+               return redirect('/mensagens')->with('success', 'Mensagem alterada com sucesso!!');
+           }
     }
 
     /**
