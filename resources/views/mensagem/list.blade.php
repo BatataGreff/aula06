@@ -21,6 +21,8 @@
 	<br>
 @endforeach
 
-<a href="/mensagens/create">Criar Nova Mensagem</a>
+<h2> <a href="/mensagens/create">Criar Nova Mensagem</a></h2>
+<br>
+<h2> <a href="/atividades">ir para a Atividade</a></h2>
 <!-- \Carbon\Carbon::parse($a->scheduledto)->format('d/m/Y h:m')  -->
 

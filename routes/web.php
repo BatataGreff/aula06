@@ -33,7 +33,6 @@ Route::put('/mensagens/{id}', 'MensagemController@update');
 Route::get('/mensagens/{id}/delete','MensagemController@delete');
 Route::delete('/mensagens/{id}', 'MensagemController@destroy');
 
-
 //php artisan key:generate
 //composer dump-autoload
 //php artisan migrate --seed

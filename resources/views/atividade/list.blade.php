@@ -23,7 +23,9 @@
 
 
 
-<a href="/atividades/create">Criar Nova Atividade</a>
+<h2><a href="/atividades/create">Criar Nova Atividade</a></h2>
+<br>
+<h2><a href="/mensagens">Ir para Mensagens</a></h2>
 <!-- \Carbon\Carbon::parse($a->scheduledto)->format('d/m/Y h:m')  -->
 
 

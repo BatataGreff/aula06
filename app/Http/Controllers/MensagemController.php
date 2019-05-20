@@ -150,7 +150,7 @@ class MensagemController extends Controller
      * @param  \App\mensagens  $mensagens
      * @return \Illuminate\Http\Response
      */
-    public function destroy(mensagens $mensagens)
+    public function destroy($id)
     {
         $obj_Mensagens= Mensagem::findOrFail($id);
         $obj_Mensagens->delete($id);
@@ -160,12 +160,12 @@ class MensagemController extends Controller
     /**
      * Do really Remove the specified resource from storage.?
      *
-     * @param  \App\Atividade  $atividade
+     * @param  \App\mensagens  $mensagens
      * @return \Illuminate\Http\Response
      */
     public function delete($id)
     {
         $obj_Mensagens= mensagem::find($id);
-        return view('mensagem.delete',['mensagem'=> $obj_Mensagem]);
+        return view('mensagem.delete',['mensagem'=> $obj_Mensagens]);
     }
 }
