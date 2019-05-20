@@ -152,6 +152,20 @@ class MensagemController extends Controller
      */
     public function destroy(mensagens $mensagens)
     {
-        //
+        $obj_Mensagens= Mensagem::findOrFail($id);
+        $obj_Mensagens->delete($id);
+        return redirect('/mensagens')->with('sucess', 'Mensagem excluída com Sucesso');
+    }
+
+    /**
+     * Do really Remove the specified resource from storage.?
+     *
+     * @param  \App\Atividade  $atividade
+     * @return \Illuminate\Http\Response
+     */
+    public function delete($id)
+    {
+        $obj_Mensagens= mensagem::find($id);
+        return view('mensagem.delete',['mensagem'=> $obj_Mensagem]);
     }
 }

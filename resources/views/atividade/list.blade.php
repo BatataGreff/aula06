@@ -14,8 +14,14 @@
 	<p><a href="/atividades/{{$atividade->id}}">{{$atividade->title}}</a> </p>
 	<p>{{$atividade->title}}</p>
 	<p>{{$atividade->description}}</p>
+	<a href="/atividades/{{$atividade->id}}/edit"> Editar a atividade {{$atividade->id}}</a>
+	<br>
+	<br>
+	<a href="/atividades/{{$atividade->id}}/delete"> Deletar a atividade {{$atividade->id}}</a> 
 	<br>
 @endforeach
+
+
 
 <a href="/atividades/create">Criar Nova Atividade</a>
 <!-- \Carbon\Carbon::parse($a->scheduledto)->format('d/m/Y h:m')  -->

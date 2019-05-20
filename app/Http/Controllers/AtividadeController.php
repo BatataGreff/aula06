@@ -150,8 +150,23 @@ class AtividadeController extends Controller
      * @param  \App\Atividade  $atividade
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Atividade $atividade)
+    public function destroy($id)
     {
-        //
+        $obj_Atividades= Atividade::findOrFail($id);
+        $obj_Atividades->delete($id);
+        return redirect('/atividades')->with('sucess', 'Atividade excluída com Sucesso');
+         
+    }
+
+     /**
+     * Do really Remove the specified resource from storage.?
+     *
+     * @param  \App\Atividade  $atividade
+     * @return \Illuminate\Http\Response
+     */
+    public function delete($id)
+    {
+        $obj_Atividades= Atividade::find($id);
+        return view('atividade.delete',['atividade'=> $obj_Atividades]);
     }
 }
