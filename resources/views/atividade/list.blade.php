@@ -14,16 +14,18 @@
 	<p><a href="/atividades/{{$atividade->id}}">{{$atividade->title}}</a> </p>
 	<p>{{$atividade->title}}</p>
 	<p>{{$atividade->description}}</p>
+	@auth
 	<a href="/atividades/{{$atividade->id}}/edit"> Editar a atividade {{$atividade->id}}</a>
-	<br>
-	<br>
 	<a href="/atividades/{{$atividade->id}}/delete"> Deletar a atividade {{$atividade->id}}</a> 
 	<br>
+
+	@endauth
 @endforeach
 
 
-
-<h2><a href="/atividades/create">Criar Nova Atividade</a></h2>
+@auth
+<p><h2><a href="/atividades/create">Criar Nova Atividade</a></h2></p>
+@endauth
 <br>
 <h2><a href="/mensagens">Ir para Mensagens</a></h2>
 <!-- \Carbon\Carbon::parse($a->scheduledto)->format('d/m/Y h:m')  -->

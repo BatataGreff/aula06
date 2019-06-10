@@ -13,16 +13,18 @@
 	<h3><a href="/mensagens/{{$mensagem->id}}">{{$mensagem->titulo}}</a> </h3>
 	<p>{{$mensagem->texto}}</p>
 	<p>{{$mensagem->autor}}</p>
+	@auth
 	<br>
 	<a href="/mensagens/{{$mensagem->id}}/edit"> Editar a mensagem {{$mensagem->id}}<a/>
 	<br>
-	<br>
 	<a href="/mensagens/{{$mensagem->id}}/delete"> Deletar a mensagem {{$mensagem->id}}<a/>
 	<br>
+	@endauth
 @endforeach
-
+@auth
 <h2> <a href="/mensagens/create">Criar Nova Mensagem</a></h2>
 <br>
+@endauth
 <h2> <a href="/atividades">ir para a Atividade</a></h2>
 <!-- \Carbon\Carbon::parse($a->scheduledto)->format('d/m/Y h:m')  -->
 
