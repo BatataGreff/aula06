@@ -11,8 +11,7 @@
 
 @foreach($atividades as $atividade)
 	<h3>{{\Carbon\Carbon::parse($atividade->scheduledto)->format('d/m/Y h:m')}}</h3>
-	<p><a href="/atividades/{{$atividade->id}}">{{$atividade->title}}</a> </p>
-	<p>{{$atividade->title}}</p>
+	<h2><p><a href="/atividades/{{$atividade->id}}">{{$atividade->title}}</a> </p></h2>
 	<p>{{$atividade->description}}</p>
 	@auth
 	<a href="/atividades/{{$atividade->id}}/edit"> Editar a atividade {{$atividade->id}}</a>

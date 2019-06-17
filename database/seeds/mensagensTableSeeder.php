@@ -15,13 +15,17 @@ class mensagensTableSeeder extends Seeder
         mensagem::create([
             'titulo' => 'Promossaum',
             'texto' => 'Ovos e banana com desconto',
-            'autor' => 'Mario Quitanda'
+            'autor' => 'Mario Quitanda',
+            'user_id'=>1,
+            'atividade_id'=> 1 
         ]);
 
         mensagem::create([
             'titulo' => 'Cleber',
             'texto' => 'The incrivel roger',
-            'autor' => 'Robson'
+            'autor' => 'Robson',
+            'user_id'=>1,
+            'atividade_id'=> 1 
         ]);
 
     }

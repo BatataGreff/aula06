@@ -14,14 +14,12 @@
 	<p>{{$mensagem->texto}}</p>
 	<p>{{$mensagem->autor}}</p>
 	@auth
-	<br>
 	<a href="/mensagens/{{$mensagem->id}}/edit"> Editar a mensagem {{$mensagem->id}}<a/>
-	<br>
 	<a href="/mensagens/{{$mensagem->id}}/delete"> Deletar a mensagem {{$mensagem->id}}<a/>
-	<br>
 	@endauth
 @endforeach
 @auth
+<br>
 <h2> <a href="/mensagens/create">Criar Nova Mensagem</a></h2>
 <br>
 @endauth
