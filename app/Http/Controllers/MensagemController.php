@@ -17,7 +17,7 @@ class MensagemController extends Controller
      */
     public function index()
     {
-        $listaMensagens = Mensagem::all();
+        $listaMensagens = Mensagem::paginate(3);
         return view('mensagem.list',['mensagens' => $listaMensagens]);
     }
 
@@ -96,10 +96,10 @@ class MensagemController extends Controller
      * @param  \App\mensagens  $mensagens
      * @return \Illuminate\Http\Response
      */
-    public function edit(mensagens $mensagens)
+    public function edit($id)
     {
         $obj_mensagem = mensagens::find($id);
-        return view('mensagem.edit',['mensagem' => $obj_mensagem]);
+        return view('mensagem.edit',['mensagem' => $obj_mensagem, "ativdade" -> $atividades]);
     }
 
     /**

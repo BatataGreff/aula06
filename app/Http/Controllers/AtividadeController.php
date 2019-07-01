@@ -81,7 +81,8 @@ class AtividadeController extends Controller
      */
     public function show($id)
     {
-        $atividade = Atividade::find($id)->with('mensagens')->get()-> first();
+        $atividade = Atividade::where('id',$id)->with('mensagens')->get()->first();
+        //dd($atividade);
         return view('atividade.show',['atividade' => $atividade]);
     }
 
